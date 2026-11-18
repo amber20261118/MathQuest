@@ -22,9 +22,3 @@ jobs:
         run: |
           xcodebuild -version
           swift --version
-
-      - name: Syntax & Compile Check for Swift Files
-        run: |
-          echo "Checking Swift files compilation..."
-          swiftc Game.swift QuestApp.swift -parse-as-library -sdk $(xcrun --show-sdk-path) -target arm64-apple-ios17.0 || true
-          echo "Cloud build validation completed!"

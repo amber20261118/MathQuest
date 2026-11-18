@@ -17,3 +17,8 @@ jobs:
         run: |
           xcodebuild -version
           swift --version
+
+      - name: Typecheck Swift Code for iOS/iPadOS
+        run: |
+          SDK_PATH=$(xcrun --sdk iphonesimulator --show-sdk-path)
+          swiftc -typecheck -sdk "$SDK_PATH" -target arm64-apple-ios17.0-simulator *.swift

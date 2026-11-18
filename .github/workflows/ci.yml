@@ -3,20 +3,15 @@ name: CI for MemeMathQuest
 on:
   push:
     branches: [ "main", "master" ]
-  pull_request:
-    branches: [ "main", "master" ]
 
 jobs:
   build:
     name: Build and Test on macOS
-    runs-on: macos-14
+    runs-on: macos-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Select Xcode Version
-        run: sudo xcode-select -switch /Applications/Xcode.app
 
       - name: Verify Environment & Swift Version
         run: |
